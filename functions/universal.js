@@ -1,7 +1,7 @@
 exports.handler = async () => {
   const formattedReturn = require('./helpers/formattedReturn')
   const mongoose = require('mongoose')
-  const todoModel = require('../models/todoModel')
+  const todoModel = require('./models/todoModel')
   require('dotenv').config({ path: process.cwd() + '/.env' })
 
   try {
