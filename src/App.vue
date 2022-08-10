@@ -1,32 +1,28 @@
 <template>
-  <div id="app">
-    <nav>
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
-    </nav>
-    <router-view/>
-  </div>
+  <main>
+    <div class="todoItem" v-for="todo in todos">
+      {{ todo.description }}
+    </div>
+  </main>
 </template>
+<script lang='js'>
+import Vue from 'vue'
+import { TodoAPI } from './api/api';
+import store from './store';
 
-<style lang="scss">
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-}
-
-nav {
-  padding: 30px;
-
-  a {
-    font-weight: bold;
-    color: #2c3e50;
-
-    &.router-link-exact-active {
-      color: #42b983;
+export default Vue.extend({
+  name: 'name',
+  mounted: async function () {
+    await TodoAPI.connect()
+    store.dispatch('fetchTodos')
+  },
+  computed: {
+    todos () {
+      return store.state.todos
     }
   }
-}
+})
+</script>
+<style lang='scss'>
+@import '@/variables';
 </style>
