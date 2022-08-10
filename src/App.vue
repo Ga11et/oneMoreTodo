@@ -13,7 +13,6 @@ import store from './store';
 export default Vue.extend({
   name: 'name',
   mounted: async function () {
-    await TodoAPI.connect()
     store.dispatch('fetchTodos')
   },
   computed: {
