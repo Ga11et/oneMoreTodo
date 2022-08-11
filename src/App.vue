@@ -21,6 +21,7 @@ export default Vue.extend({
 *{
   box-sizing: border-box;
   margin: 0;
+  color: $black;
 }
 @font-face {
   font-family: "Vela Sans";
