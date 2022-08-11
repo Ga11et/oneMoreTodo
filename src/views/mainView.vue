@@ -1,7 +1,3 @@
-import store from '@/store';
-import store from '@/store';
-import store from '@/store';
-import store from '@/store';
 <template>
   <div class="mainView">
     <TodoItem v-for="todo in todos" :content="todo" :key="todo.id" />
