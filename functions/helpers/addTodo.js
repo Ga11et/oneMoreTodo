@@ -10,7 +10,7 @@ module.exports = async (event) => {
       useUnifiedTopology: true
     })
 
-    await todoModel.create({ date: new Date().getTime(), description: JSON.parse(event.body) })
+    await todoModel.create({ date: (new Date).getTime(), description: JSON.parse(event.body) })
 
     return formattedReturn(200, 'todo created')
   } catch (error) {

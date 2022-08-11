@@ -1,27 +1,33 @@
 <template>
   <main>
-    <div class="todoItem" v-for="todo in todos">
-      {{ todo.description }}
-    </div>
+    <MainView />
   </main>
 </template>
 <script lang='js'>
 import Vue from 'vue'
-import { TodoAPI } from './api/api';
 import store from './store';
+import MainView from './views/mainView.vue';
 
 export default Vue.extend({
-  name: 'name',
-  mounted: async function () {
-    store.dispatch('fetchTodos')
-  },
-  computed: {
-    todos () {
-      return store.state.todos
-    }
-  }
+    name: "name",
+    mounted: async function () {
+        store.dispatch("fetchTodos");
+    },
+    components: { MainView }
 })
 </script>
 <style lang='scss'>
 @import '@/variables';
+*{
+  box-sizing: border-box;
+  margin: 0;
+}
+@font-face {
+  font-family: "Vela Sans";
+  src: local("Vela Sans"),
+   url(./assets/VelaSans-GX.ttf) format("truetype");
+}
+:root{
+  font-family: "Vela Sans", sans-serif;
+}
 </style>
